@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting Personal With PowerShell: Linux to PowerShell"
-date: 2014-06-16 22:39:32 +0100
+date: 2014-06-28 13:00:00 +0100
 comments: true
 categories: 
 ---
