@@ -11,7 +11,7 @@ layout: default
             <p class="meta text-muted text-uppercase">{% include post/date.html %}{{ time }}</p>
           {% endif %}
           {% if page.title %}
-            <h1 class="entry-title">
+          <a href="{{ root_url }}{{ post_url }}"><h1 class="entry-title">
               {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
               {% if page.subtitle %}
                   <small>
@@ -19,6 +19,7 @@ layout: default
                   </small>
               {% endif %}
             </h1>
+        </a>
           {% endif %}
         </header>
       {% endunless %}
