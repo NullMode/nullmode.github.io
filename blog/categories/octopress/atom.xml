@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | Things all the hacking]]></title>
+  <link href="http://blog.nullmode.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://blog.nullmode.com/"/>
+  <updated>2015-01-15T20:55:23+00:00</updated>
+  <id>http://blog.nullmode.com/</id>
+  <author>
+    <name><![CDATA[NullMode]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My Move to Octopress]]></title>
+    <link href="http://blog.nullmode.com/blog/2014/05/25/my-move-to-octopress/"/>
+    <updated>2014-05-25T14:00:00+01:00</updated>
+    <id>http://blog.nullmode.com/blog/2014/05/25/my-move-to-octopress</id>
+    <content type="html"><![CDATA[<p>So, a friend of mine was talking about this thing called Octopress and how he was moving his blogspot content across to it. I toiled for a while thinking that it wasn&rsquo;t something I needed to do right now, but in the end I gave in and spent an evening moving my own blog across (I only had 2 posts before this so I assumed it would be quick &ndash; and I was right). There are plenty of blogs describing the process of setting up an Octopress site using GitHub pages, so rather than regurgitate others material I&rsquo;ll talk about the bits that I got stuck with. But first&hellip;</p>
+
+<h3>Why did I move?</h3>
+
+<p>It&rsquo;s not hard to notice that I&rsquo;ve only got two other posts on this blog. There&rsquo;s a couple reasons for that. The main reason is I don&rsquo;t like to repeat content that&rsquo;s already out on the net. I&rsquo;ve had a few things to talk about previously but after having a look about it&rsquo;s already been done before, so why copy what&rsquo;s out there? Secondly, the sort of posts that I would like to write (like my De-Ice guide) would be in depth. Whilst I do enjoy blogging, using blogspot was a pain to use. Making everything look pretty using the formatting in blogspot was tedious and slow making me reluctant/too lazy to write big blog posts.</p>
+
+<p>Not so long ago I had been updating my README.md files in<a href="https://github.com/NullMode"> my GitHub repositories</a> using a tool called <a href="http://markdownpad.com/">MarkdownPad2</a>. In the git fashion, I was writing the markdown locally, seeing the output of the markdown in MarkdownPad before pushing. After finding out how Octopress works the way I could push blog posts out was more appealing: I could create pages offline, work on them offline and see the preview of the generated output offline all before pushing it GitHub and using a very glorified notepad-ish tool. All along with simple and to the point formatting. Hazzah.</p>
+
+<h3>What is Octopress anyway?</h3>
+
+<p>For those who don&rsquo;t know what Octopress is, here&rsquo;s a small run down. Octopress is a Ruby on Rails application that is essentially a framework for Jekyll: a static website generator. This generated content can then be pushed up to a repository on GitHub, and then you can use GitHub pages to host it. Visiting the <a href="http://octopress.org/" title="Octopress">Octopress</a> site will give you some more information about Octopress.</p>
+
+<h3>So what is markdown?</h3>
+
+<p>Markdown is language created for the sole purpose allowing people <a href="http://daringfireball.net/projects/markdown/" title="John Gruber on Markdown">“to write using an easy-to-read, easy-to-write plain text format, and optionally convert it to structurally valid XHTML (or HTML)”.</a> The <a href="http://daringfireball.net/projects/markdown/syntax" title="Syntax">syntax</a> is so basic that makes knocking up a simple page (such as readme files for GitHub repositories) trivial.</p>
+
+<h3>Windows installation</h3>
+
+<p>The main bulk of my installation came from following the two guides below. This includes setting up: titles, a custom theme, adding posts and adding pages:</p>
+
+<ol>
+<li><a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></li>
+<li><a href="http://paulsturgess.co.uk/blog/2013/04/24/hello-octopress-and-github-pages/">http://paulsturgess.co.uk/blog/2013/04/24/hello-octopress-and-github-pages/</a></li>
+</ol>
+
+
+<p>Since I had ruby mostly installed on my system all I needed was to download and install the DevKit which is required for Octopress. The download for DevKit can be found on <a href="http://rubyinstaller.org/downloads" title="Ruby downloads">Ruby Installer</a> website (make sure you get the correct version for your Ruby install).</p>
+
+<h3>Bundle exec</h3>
+
+<p>On my shell in windows I was getting an error because the wrong version of rake was installed. Anyone who knows what they&rsquo;re going with Ruby knows that they can run the required version by using bundle exec (I had to look this up because I don&rsquo;t normally work with Ruby):</p>
+
+<pre><code>&gt; rake new_post["My move to Octopress"]
+You have already activated rake 10.1.0, but your Gemfile requires rake 0.9.2.2.
+Using bundle exec may solve this.
+</code></pre>
+
+<p>Simply prepend your commands within the application with &ldquo;bundle exec&rdquo;, like so:</p>
+
+<pre><code>&gt; bundle exec rake new_post["My move to Octopress"]
+</code></pre>
+
+<h3>Adding a twitter recent tweet box</h3>
+
+<p>After being disappointed that a twitter box didn&rsquo;t appear after filling in my details in the configuration file I was pointed to <a href="http://blog.jmac.org/blog/2013/03/30/putting-twitter-back-into-octopress/" title="Jmac - Putting Twitter Back Into Octopress">Jmac&rsquo;s</a> post on how to put twitter back into Octopress. The guide was pretty easy to follow, although I removed the following line from the twitter.html page as it wasn&rsquo;t required for my theme:</p>
+
+<p><code>&lt;h1&gt;Twitter&lt;/h1&gt;
+</code></p>
+
+<h3>Custom favicon in Octopress</h3>
+
+<p>I wanted to use my old blog&rsquo;s favicon on my Octopress site. Presumably it would be a copy and paste win, however Octopress likes to have the favicon as a png file (yes you could edit some html to include the ico, but the following was faster for my lazy brain somehow). The main solution was found at the end of this <a href="https://brianbuccola.github.io/blog/2012-11-29-how-to-change-the-favicon-in-octopress.html" title="How to Change the Favicon in Octopress">post</a>. Firstly I went to my old site (before the CNAME part below if you skipped ahead) and downloaded the favicon: <a href="http://blog.nullmode.com/favicon.ico.">http://blog.nullmode.com/favicon.ico.</a> I then needed to convert my .ico to a .png file. Since I couldn&rsquo;t be bothered to use some fancy image library for converting the .ico which had been mentioned in a few guides, I simply went to <a href="http://converticon.com/" title="Convert your ico files">http://converticon.com/</a> for the conversion. With this new favicon.png in hand, I added it to my sources/ folder and ran <code>bundle exec rake generate</code> which added the favicon to my generated code.</p>
+
+<h3>Pointing a custom domain to your GitHub Pages site</h3>
+
+<p>Most people want to have a custom domain pointing to their blog. The steps for this are really simple, <a href="http://gangmax.me/blog/2012/07/02/add-cname-for-my-octopress-github-pages/" title="Add CNAME for My Octopress Github Pages">GangMax</a> and <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages" title="Setting up a custom domain with GitHub Pages">GitHub</a> are both good guides on how to do this. However, remember how I said I was on windows? On my command line (PowerShell by default) I ran the following:</p>
+
+<pre><code>&gt; echo blog.nullmode.com &gt; sources/CNAME    
+</code></pre>
+
+<p>That should be okay? Right? Well no. When I deployed my site with the new CNAME file I got an e-mail from GitHub:</p>
+
+<pre><code>The page build completed successfully, but returned the following warning:
+
+Bad CNAME format: ÿþb l o g . n u l l m o d e . c o m
+</code></pre>
+
+<p>Weird right? Well, it turns out that when piping into a file with PowerShell it uses the encoding <code>UCS 2 Little Endian</code> (checking with Notepad++ on the encoding tab). To fix this I done the following using Notepad++: open said file, clicking <code>Encoding</code>, then selecting <code>Convert to UTF-8 without BOM</code> and saving. It turns out that using the old fashioned Command Prompt for piping the CNAME into the CNAME file uses the correct encoding. Committing and redeploying after the changing the encoding fixed this error.</p>
+
+<h3>List of links</h3>
+
+<ul>
+<li><a href="http://markdownpad.com/">http://markdownpad.com/</a></li>
+<li><a href="http://octopress.org/docs/blogging/">http://daringfireball.net/projects/markdown/</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a></li>
+<li><a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></li>
+<li><a href="http://paulsturgess.co.uk/blog/2013/04/24/hello-octopress-and-github-pages/">http://paulsturgess.co.uk/blog/2013/04/24/hello-octopress-and-github-pages/</a></li>
+<li><a href="http://rubyinstaller.org/downloads">http://rubyinstaller.org/downloads</a></li>
+<li><a href="http://blog.jmac.org/blog/2013/03/30/putting-twitter-back-into-octopress/">http://blog.jmac.org/blog/2013/03/30/putting-twitter-back-into-octopress/</a></li>
+<li><a href="https://brianbuccola.github.io/blog/2012-11-29-how-to-change-the-favicon-in-octopress.html">https://brianbuccola.github.io/blog/2012-11-29-how-to-change-the-favicon-in-octopress.html</a></li>
+<li><a href="http://converticon.com/">http://converticon.com/</a></li>
+<li><a href="http://gangmax.me/blog/2012/07/02/add-cname-for-my-octopress-github-pages/">http://gangmax.me/blog/2012/07/02/add-cname-for-my-octopress-github-pages/</a></li>
+<li><a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

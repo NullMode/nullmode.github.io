@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Penetration Testing With Backtrack - OSCP - Things all the hacking</title>
+  <meta name="author" content="NullMode">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.nullmode.com/blog/2013/05/11/penetration-testing-with-backtrack-oscp">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="Things all the hacking" type="application/atom+xml">
+
+  <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
+
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51330433-1', 'nullmode.com');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+  </script>
+
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/images/nullmode.png" class="img-circle
+            nullmode-logo" />
+        </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Things all the hacking</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li >
+                    <a href="/blog/archives">Archives</a>
+                </li>
+                <li >
+                    <a href="/online-resources/">Online Resources</a>
+                </li>
+                <li >
+                    <a href="/readme/">README.txt</a>
+                </li>
+                <li >
+                    <a href="/PGP/">PGP</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="https://www.google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:blog.nullmode.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header page-header-adjustment">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-11T12:00:00+01:00" pubdate data-updated="true">May 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        Penetration Testing With Backtrack - OSCP
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix"><h3>The course</h3>
+
+<p>The Penetration Testing with BackTrack (PWB) course is one which covers a lot of topics and genres, will push you to your limits, and make you forget what sleep is. The remote lab covers multiple networks, each with machines varying in difficulty and types of vulnerabilities. I cannot go into too much detail due to the non-disclosure agreement students make with Offensive Security. The best insight as to what is covered in the course can be viewed here in the <a href="http://www.offensive-security.com/documentation/penetration-testing-with-backtrack.pdf">course syllabus</a> (this is what got me initially interested in the course). Be aware that the lab book will go through a large selection of topics, but independent research will be required. Expect to be surprised in the labs.</p>
+
+<p>To start with a few quick notes to people that might be reading this.</p>
+
+<h3>Le background</h3>
+
+<p>Before I start rambling on about my experiences and information about the course, it is worth noting my past experience. Before taking the course my main programming strengths were PHP and Java (guys don&rsquo;t shoot me). I had some basic web app exploitation knowledge and a some Linux experience.</p>
+
+<p>I was advised to tackle some free systems that have built-in vulnerabilities (listed at the bottom of this post). All of these applications were Linux based, they were fun to do and gave me deeper insight into service enumeration, web-based attacks and kernel exploitation. I am glad I decided to do these boxes as it gave me a bit of a starting knowledge. However, if you are new to this game as I was (and still am) the offsec course will throw a hell of a lot more at you than these machines will.</p>
+
+<p><strong>If you&rsquo;re new penetration testing</strong> and have similar experience to me then this course may not be for you. I encourage you to read this post as I will attempt to put things into perspective about the time it takes, and the factors that helped me succeed in the time I did. Believe me when I say that if you&rsquo;re new, it&rsquo;s gonna hurt, it&rsquo;s going to take time but it&rsquo;s gonna be fun.</p>
+
+<p><strong>If you&rsquo;re not new to penetration testing</strong> this course may be great as a &ldquo;refresher&rdquo; or something to do to get some additional practice. It may even be a case of doing it to get the cert for your resume. If you&rsquo;re a fully-fledged pen tester you will probably (and hopefully) fly through the course.</p>
+
+<h3>Many thanks</h3>
+
+<p>I am very lucky to have and made a few good friends that have guided me and supported me throughout this course. Without them, I would not have learnt and grasped as much, and would certainly have not popped as many machines as I did. If you&rsquo;re one of the people that helped me in this course (and you will know who you are) thank you for teaching me how to fish.</p>
+
+<h3>The adventure</h3>
+
+<p>I booked the 60 day option for the course, knowing that I would at least need this amount of time to get to grips with the materiel and make a good start on the labs. I made a point of downloading and looking at the course syllabus to see what I was letting myself in for. Well, to me it looked fun. The course covered a wide range of topics which tickled my fancy.</p>
+
+<p>I took 2 weeks off my job at the time to work through all of the material. I took notes, screenshotted everything and completed near enough all of the exercises. For me, this is the only way for stuff to sink in (plus I wanted to get my money&rsquo;s worth). I had half hoped I could get through the PDFs and videos quickly, however I found that even after my 2 weeks off work I still had some stuff to do. I put this down to my overly-keen documentation, but I don&rsquo;t regret this at all. I now have a massive KeepNote file I can reference in the future.</p>
+
+<p>I moved into the lab environment and quickly got to grips with a few of the tools described in the lab book. I started off by looking for the &ldquo;Low Hanging Fruit&rdquo;. See port X open, exploit with Y. I soon broke into a few machines using some of the basic exploits and vulnerabilities described in the material. After about a week I had a small collection of machines under my belt, and a lot of information collected.</p>
+
+<p>It was at this point I felt I was tackling the course the wrong way. I started brute forcing my way into servers. I&rsquo;m not going to let on exactly what I was doing because I don&rsquo;t want to ruin the course for others. Long story short: I ended up taking &ldquo;the easy route&rdquo;. After chatting with a friend I could sense he was either face palming or shaking his head. After a small discussion I took it upon myself to break into the remaining machines (and the ones I had brute forced) through their intended vulnerabilities.</p>
+
+<p>Now I know for a fact that in an actual penetration test, some of the techniques I used to pop boxes so quickly are vital (as time is usually of the essence). However, I did not want to go down this route as, for me at least,  more knowledge was to be gained by breaking into machine the hard way. After I cleared my conscience I started popping through boxes again, I found that I was getting a lot more satisfaction and &ldquo;awwww yeah!&rdquo; moments when getting system/root on servers.</p>
+
+<p>I extended the course by another 30 days so I could attempt to break into all the boxes. I really started picking up the pace at this point. I was popping at least a machine a day. The course material had finally sunk in better after some initial exposure to the labs; things were falling into place where they hadn&rsquo;t before. I started to find myself thinking more logically about the problems I was facing with a tough box, thinking back to basics, and finding out stuff I had missed. I popped the majority of the machines when my lab time ran out. I also took the time to break into everything again, save commands used, their outputs and save the screen shots. I did this more for myself so I had something to look back on after the course. It took me a good couple of days to do this, but I don&rsquo;t regret this at all.</p>
+
+<h3>Exam</h3>
+
+<p>I booked my exam around about a month after my lab time had finished. I relished the time to relax a bit and not have to spend endless hours on the course. Looking back, I think that a month was too long to wait for the exam. I would say two weeks would have sufficed, giving me time to finish writing the lab report and preparing for the exam. In fact, I think the exam would have gone a bit easier as the course material would have been fresh in my head.</p>
+
+<p>The exam lasts for 24 hours, I decided to opt for a afternoon start and prepared myself with a bit of a lay in. It was probably one of the most intense 24 hours of my life but it was certainly worth it. Within 72 hours of submitting my lab and exam reports I got this in my mail box:</p>
+
+<p><strong>We are happy to inform you that you have successfully completed your Certification Challenge and obtained your OSCP certification.</strong></p>
+
+<h3>Summary</h3>
+
+<p>Overall I really enjoyed the course. From starting with quite a small amount of knowledge I managed to gain a great understanding of the basics. Being thrown in the deep end is a great tool for learning, it makes you look up things that may not work, but at least you learn why it doesn&rsquo;t work and gain additional knowledge from doing so. New or Professional, there is something in this course for everyone. Learn the basics, hone your skills, or get a certification for your resume.</p>
+
+<p>Help and guidance
+The <a href="irc://irc.freenode.net/offsec" title="#offsec">#offsec</a> IRC channel on freenode is always active, and there should always be an admin around. You can get some &ldquo;hints&rdquo; with a specific machine you can !machinename in their IRC channel (some troll messages too). The forums are also a treasure trove of past posts that can be helpful if you&rsquo;re stuck or if you&rsquo;re having a problem with a particular box or lab module.</p>
+
+<p>Course advice
+If you get stuck on a box try to think back to basics. Enumeration is the key! Look back on the techniques you learnt from the material to finger print, banner grab and enumerate services/web applications. Google is your friend! Try to solve things yourself before asking others, especially when the question is one you find the answer for in a 10 second google search. Finding the solution yourself will also give you a better feeling then if you&rsquo;re just given the answers. Remember, in the real world, if you&rsquo;re stuck trying to break into a machine whilst on a pen test, who is going to spoon feed you then? Don&rsquo;t be too scared/lazy to read things! Try and do things the hard way if possible, the feeling you get will be great, and the amount of knowledge to be gained is worth it&rsquo;s weight in gold.</p>
+
+<p>Before taking the course
+Check out VulnHub (linked below) or similar sites to get a feel for what the course is going to offer. The machines I played with before starting the course:</p>
+
+<ul>
+<li>Kioptrix Level 1</li>
+<li>Kioptrix Level2</li>
+<li>De-Ice Disk 1</li>
+<li>De-Ice Disk 1.1</li>
+<li>De-Ice Disk 2.1</li>
+<li>DVWA (Damn Vulnerable Web App)</li>
+</ul>
+
+
+<p>I would also suggest the following machines:</p>
+
+<ul>
+<li>Metasploitable</li>
+<li>Metasploitable 2</li>
+</ul>
+
+
+<p>There are plenty of other free resources on the web, to list a few:</p>
+
+<ul>
+<li><a href="http://www.hackthissite.org">http://www.hackthissite.org</a></li>
+<li><a href="https://www.corelan.be">https://www.corelan.be</a></li>
+<li><a href="https://www.hacking-lab.com">https://www.hacking-lab.com</a></li>
+</ul>
+
+
+<h3>Links</h3>
+
+<ul>
+<li><a href="http://vulnhub.com">http://vulnhub.com</a></li>
+<li><a href="http://www.offensive-security.com/information-security-training/penetration-testing-with-backtrack">http://www.offensive-security.com/information-security-training/penetration-testing-with-backtrack</a></li>
+<li><a href="http://www.offensive-security.com/documentation/penetration-testing-with-backtrack.pdf">http://www.offensive-security.com/documentation/penetration-testing-with-backtrack.pdf</a></li>
+</ul>
+
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">NullMode</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-11T12:00:00+01:00" pubdate data-updated="true">May 11<span>th</span>, 2013</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/oscp/'>OSCP</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.nullmode.com/blog/2013/05/11/penetration-testing-with-backtrack-oscp/" data-via="NullMode_" data-counturl="http://blog.nullmode.com/blog/2013/05/11/penetration-testing-with-backtrack-oscp/" >Tweet</a>
+  
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            
+            <li class="next"><a href="/blog/2013/10/31/de-ice-s1-dot-100-level-1-a-beginners-guide/" title="Next Post: De-ICE S1.100 (Level 1) - A Beginners Guide">De-ICE S1.100 (Level 1) - A Beginners Guide &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+  </div>
+
+  
+  <aside class="sidebar col-md-3">
+    
+      <section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent Posts</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
+    
+    <a class="list-group-item " href="/blog/2014/06/28/getting-personal-with-powershell/">Getting Personal With PowerShell: Linux to PowerShell</a>
+    
+    <a class="list-group-item " href="/blog/2014/05/25/my-move-to-octopress/">My Move to Octopress</a>
+    
+    <a class="list-group-item " href="/blog/2013/10/31/de-ice-s1-dot-100-level-1-a-beginners-guide/">De-ICE S1.100 (Level 1) - a Beginners Guide</a>
+    
+    <a class="list-group-item active" href="/blog/2013/05/11/penetration-testing-with-backtrack-oscp/">Penetration Testing With Backtrack - OSCP</a>
+    
+  </div>
+</section>
+
+<section class="panel panel-default clearfix">
+  <div class="panel-heading">
+      <h3 class="panel-title">GitHub Repos</h3>
+  </div>
+  <div class="list-group" id="gh_repos">
+    <p class="loading">Status updating...</p>
+  </div>
+  
+    <div class="gh-profile-link pull-right text-muted">
+      <a href="https://github.com/NullMode">@NullMode</a> on GitHub
+    </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'NullMode',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+ <section>
+     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/NullMode_" data-widget-id="469541095303426049">Tweets by @NullMode_</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+ </section>
+
+
+
+
+    
+  </aside>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2015 - NullMode<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+  </body>
+</html>
