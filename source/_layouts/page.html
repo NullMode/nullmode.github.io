@@ -6,7 +6,7 @@ layout: default
   <div class="page-content {% unless page.sidebar == false or site.page_asides == empty and site.default_asides == empty %}col-md-9{% else %}col-md-12{% endunless %}">
     <article role="article">
       {% unless page.no_header %}
-        <header class="page-header">
+      <header class="page-header page-header-adjustment">
           {% if page.date %}
             <p class="meta text-muted text-uppercase">{% include post/date.html %}{{ time }}</p>
           {% endif %}

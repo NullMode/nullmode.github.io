@@ -1,0 +1,15 @@
+/* Nullmode logo */
+.nullmode-logo
+{
+    height: 40px;
+    width: 40px;
+    box-shadow: 1px 1px 1px 1px #888888;
+    margin-right: 25px;
+    margin-top: 3px;
+}
+
+/* Adjustment to page header to make it nearer the top of the page */
+.page-header-adjustment
+{
+    margin-top: 5px;
+}

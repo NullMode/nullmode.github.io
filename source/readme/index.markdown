@@ -2,9 +2,8 @@
 layout: page
 title: "README.txt"
 navbar: "README"
-date: 2014-05-22 17:38
-comments: true
-sharing: true
+comments: false
+sharing: false
 footer: true
 ---
 

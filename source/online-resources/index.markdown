@@ -2,9 +2,8 @@
 layout: page
 title: "Online Resources"
 navbar: "Online Resources"
-date: 2014-05-22 17:06
-comments: true
-sharing: true
+comments: false
+sharing: false
 footer: true
 ---
 
