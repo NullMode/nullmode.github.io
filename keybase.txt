@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/nullmode
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://blog.nullmode.com
+  * I am nullmode (https://keybase.io/nullmode) on keybase.
+  * I have a public key with fingerprint F70C 6548 3A70 8424 5DBE  66B3 FF5B E42F 947D 0151
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.7.2"
+        },
+        "key": {
+            "fingerprint": "f70c65483a7084245dbe66b3ff5be42f947d0151",
+            "host": "keybase.io",
+            "key_id": "FF5BE42F947D0151",
+            "uid": "4fda3dbb682b716aa50df4521a908100",
+            "username": "nullmode"
+        },
+        "merkle_root": {
+            "ctime": 1421066694,
+            "hash": "d7b94e20d9d29bd2464c1b019ad5e6de692f5a18c9bf07280f435427f20de5da5a987f47b6e24e875124654b66747b39c3f4fb24fb017edba1a4a9bd6b7afd18",
+            "seqno": 127921
+        },
+        "service": {
+            "hostname": "blog.nullmode.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1421066781,
+    "expire_in": 157680000,
+    "prev": "3f6ced34b3ae26d0b9156cc07063ce27139a765a3bf9f310977e0371d5846f07",
+    "seqno": 11,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFVUg1MFEcUPk4RaFSg2EKsNnpBinI99md2ZxcMJaWCBepPqJjGs8fO7ixsOW7P
+vQM5KVFaK6kKtSkkLYZaayrFKFIQwcBZAodSPYMoatMmoEWbGLRGWlsbQumuwUQn
+mWTmzfe+733vzYEFc0zmkJktt5PrKkM2hly8i0zvtvctrbAgVfJZUiosolPBLq9x
+cgkl2JJiKcY+JHiwTVGXuVQJ2z7wLJvFWC1lWPMoqktHETZooyyVVgNuJMuKqxBr
+bk0xuCwyJESWARwtQIIDFGAkhFkW0bLMIAwomQdQIkiG1CmLVI/3OVXLE06HIunR
+zEzmzTWAytTxb83iS588AFkSaAkhlqMQJFlBYAhJBgxFCjzBkQRhAD1Ym7XkKnU6
+S3QvRr0lWCt2Yoemqk9Mi17FgJCAIgmWZXmgVyR4ivQkCSIeYIqQeInikUQBFogk
+IkhekBjMSpjlKZkRSE7kkUxAiiNkQDOAgrKeghlJYASegzKAiMUUwBxkSJ2CAYhl
+oR6keZGWgYwofRMkxBISSAEIuhCLoCBLJKdb8OBtLlUvjoI8RVYad61MEbFRt9G2
+WXfIqRbanlq0iWqJnunWVK8qqk79ucjrdacYzr0+tw5vt2zHyDHL5ECKS9In9+xo
+DaHnuwI50mrB5W5Fww7FQDCQ5Qh9GTq4TNegZVbEEg0QLWCKlQjEkwwrigQkWFrE
+FCRpXoAsI9BI5mWaJHgIMUFDUmI4wOrde8arLuUVCnVOj1LoErylmj61T81L5ppC
+zKZ5oWbj85peiIh6+qPrcyNnsqrab/XsPOVn8ipaJtMD5zbF3vGPmm4NPLp+ZfOe
+U6v8ADUX/HxhfN/OL8ta++8v7qVYIRhvn+Ziess67KcnlATq8eWp38312kDSq7UZ
+r5XXNV68024bX320i6xtSj/Yft41ao0I/Pftuu7yus0ZZx0P42LG4vxDfZ2v1OWm
+tV0eNO3b+3lJmmcmsObk1eq2E9lTeYf6GoN3mxfxqcHPWrv9De4jQTbi5LS56Fod
+iu5PtI+//o+jPDm/d+uhmV0NcCyMWnTs/RORjyccA/32sn5H17aiJDzR6BhKPWi/
+t7ttrn/kUMNi3nTZlzj8aMlkcueJ4wkrjqSvWLd+f/zGrdvvbYm/Nn9B+KB5+Y2Q
+mJWlttMjjoyHUB32va2MXfrzpzndXxzL5PdfSBWy5927eSYse3lOV0zVjl/cBRPB
+HHtFWFbW2RFqvq8l5ZNV+StvFl7LOV75IP8KHwQ31n733oLwtc2R5TXXR8/gr4/G
+dkQv7fvwXPGBLO2jnKRKcigw8ltHOmgI5GWHH7Wur51v9W7rkejvrSW59Q2Ha1uj
+i6sfvKR1TIvvbPojsXP4cNP9yh0337CPfxO3quKv3aFyTdfCH1YPneoseHFDdU9N
+/1XHWP7LU5du93zsbPF/FexY2PTvYEhgz4+7YqNzQl2/brga9TAK/J0wCavSfJ3p
+4YsSfavR+bz8gND6Pw==
+=qOTF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nullmode
+
+==================================================================
