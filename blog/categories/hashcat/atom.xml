@@ -4,7 +4,7 @@
   <title><![CDATA[Category: hashcat | Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/blog/categories/hashcat/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-03-22T01:46:57+00:00</updated>
+  <updated>2015-03-22T03:09:25+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -18,7 +18,7 @@
     <link href="http://blog.nullmode.com/blog/2015/03/22/36-core-aws-john/"/>
     <updated>2015-03-22T12:00:00+00:00</updated>
     <id>http://blog.nullmode.com/blog/2015/03/22/36-core-aws-john</id>
-    <content type="html"><![CDATA[<p>As part of a project recently I got the chance to play with a 36 core instance on AWS (c4.8xlarge) for some password cracking related activities. To get hashcat and john up and running with multi-core is a little fiddly (it&rsquo;s not download and crack), so I thought I&rsquo;d document the setup and show some benchmarks with <a href="http://hashcat.net/hashcat/">hashcat</a> and <a href="http://www.openwall.com/john/">John the Ripper</a> utilising 36 cores. In order to select the 36 core instance you&rsquo;ll need to use a HVM (hardware virtual machine) enabled machine image. I used the Amazon Linux image.</p>
+    <content type="html"><![CDATA[<p>As part of a project recently I got the chance to play with a 36 core instance on AWS (c4.8xlarge) for some password cracking related activities. To get hashcat and john up and running with multi-core is a little fiddly (it&rsquo;s not download and crack), so I thought I&rsquo;d document the setup and show some benchmarks with <a href="http://hashcat.net/hashcat/">hashcat</a> and <a href="http://www.openwall.com/john/">John the Ripper</a> utilising 36 cores. In order to select the 36 core instance you&rsquo;ll need to use a HVM (hardware virtual machine) enabled machine image. I used the Ubuntu Server Image.</p>
 
 <!-- more -->
 
