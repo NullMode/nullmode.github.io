@@ -4,7 +4,7 @@
   <title><![CDATA[Category: password cracking | Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/blog/categories/password-cracking/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-03-22T03:11:18+00:00</updated>
+  <updated>2015-03-22T11:04:37+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -25,7 +25,7 @@
 
 <p>I&rsquo;ll be assuming you can reach the point of setup where you are logging into your freshly set-up machine on AWS (if you&rsquo;re following along to set this up yourself). If you need help setting up a box on AWS, there&rsquo;s a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">getting started</a> guide from amazon to get you going.</p>
 
-<p>The bench marks from this will differ depending on attack type, rules, and what hash type is being attacked, so take these results with a pinch of sale. Both hashcat and john both have different benchmark outputs. John only shows the benchmarks of the algorithms it was compiled with (as far as i&rsquo;m away).</p>
+<p>The bench marks from this will differ depending on attack type, rules, and what hash type is being attacked, so take these results with a pinch of salt. Both hashcat and john both have different benchmark outputs. John only shows the benchmarks of the algorithms it was compiled with (as far as i&rsquo;m away).</p>
 
 <h2>hashcat</h2>
 
