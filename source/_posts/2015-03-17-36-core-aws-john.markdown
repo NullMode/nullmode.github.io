@@ -1,0 +1,324 @@
+---
+layout: post
+title: "Password Cracking with Amazon Web Services - 36 Cores"
+date: 2015-03-22 13:00:00 +0100
+comments: true
+categories: [password cracking, john the ripper, hashcat, aws]
+---
+
+As part of a project recently I got the chance to play with a 36 core instance on AWS (c4.8xlarge) for some password cracking related activities. To get hashcat and john up and running with multi-core is a little fiddly (it's not download and crack), so I thought I'd document the setup and show some benchmarks with [hashcat](http://hashcat.net/hashcat/) and [John the Ripper](http://www.openwall.com/john/) utilising 36 cores. In order to select the 36 core instance you'll need to use a HVM (hardware virtual machine) enabled machine image. I used the Amazon Linux image. 
+
+<!-- more -->
+
+I'll be assuming you can reach the point of setup where you are logging into your freshly set-up machine on AWS (if you're following along to set this up yourself). If you need help setting up a box on AWS, there's a [getting started](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) guide from amazon to get you going.
+
+The bench marks from this will differ depending on attack type, rules, and what hash type is being attacked, so take these results with a pinch of sale. Both hashcat and john both have different benchmark outputs. John only shows the benchmarks of the algorithms it was compiled with (as far as i'm away).
+
+## hashcat
+
+Usually the GPU version of hashcat is the tool of choice for me when it comes to password cracking. However, on this occasion I was interested in experimenting and benchmarking with CPU only. 
+
+### Setup
+
+The setup for multicore hashcat is pretty straight forward. Installing `libgmp3-dev`  was required in order to run multicore. Multiple core support is provided by default. You'll need to download `p7zip-full` to extract the download a bit further on (7z).
+
+	sudo apt-get update
+	sudo apt-get install -y libgmp3-dev p7zip-full
+
+After this it was just a case of downloading and installing the latest version of [hashcat](http://hashcat.net/hashcat/).
+
+	wget http://hashcat.net/files/hashcat-0.49.7z
+	7z x hashcat-0.49.7z
+	
+The EULA needed to be accepted proceeding with using hatchet, here's a quick copy paste way to get the prompt up, I guess:
+
+	./hashcat-cli64.bin -a 0 -m 0 examples/A0.M0.hash examples/A0.M0.word
+
+'OH NO! I got this!'
+
+	./hashcat-cli64.bin: error while loading shared libraries: libgmp.so.10: cannot open shared object file: No such file or directory
+
+No you didn't, because you did the apt-get install from earlier...
+
+### Benchmarks
+
+Benchmarking is simple enough with hatchet using the `--benchmark` or `-b` option. Here's the output (it's a bit long):
+
+	./hashcat-cli64.bin
+	
+	Initializing hashcat v0.49 with 36 threads and 32mb segment-size...
+
+	Device...........: Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz
+	Instruction set..: x86_64
+	Number of threads: 36
+
+	Hash type: MD4
+	Speed/sec: 442.76M words
+
+	Hash type: MD5
+	Speed/sec: 380.02M words
+
+	Hash type: SHA1
+	Speed/sec: 218.86M words
+
+	Hash type: SHA256
+	Speed/sec: 110.37M words
+
+	Hash type: SHA512
+	Speed/sec: 43.28M words
+
+	Hash type: SHA-3(Keccak)
+	Speed/sec: 42.93M words
+
+	Hash type: GOST R 34.11-94
+	Speed/sec: 24.99M words
+
+	Hash type: SHA-1(Base64), nsldap, Netscape LDAP SHA
+	Speed/sec: 219.19M words
+
+	Hash type: SSHA-1(Base64), nsldaps, Netscape LDAP SSHA
+	Speed/sec: 197.88M words
+
+	Hash type: descrypt, DES(Unix), Traditional DES
+	Speed/sec: 10.54M words
+
+	Hash type: md5crypt, MD5(Unix), FreeBSD MD5, Cisco-IOS MD5
+	Speed/sec: 407.68k words
+
+	Hash type: sha256crypt, SHA256(Unix)
+	Speed/sec: 21.27k words
+
+	Hash type: sha512crypt, SHA512(Unix)
+	Speed/sec: 8.49k words
+
+	Hash type: bcrypt, Blowfish(OpenBSD)
+	Speed/sec: 25.86k words
+
+	Hash type: Oracle 11g/12c
+	Speed/sec: 197.28M words
+
+	Hash type: NTLM
+	Speed/sec: 370.22M words
+
+	Hash type: DCC, mscash
+	Speed/sec: 221.91M words
+
+	Hash type: NetNTLMv1-VANILLA / NetNTLMv1+ESS
+	Speed/sec: 356.85M words
+
+	Hash type: NetNTLMv2
+	Speed/sec: 67.54M words
+
+	Hash type: EPiServer 6.x < v4
+	Speed/sec: 180.62M words
+
+	Hash type: EPiServer 6.x > v4
+	Speed/sec: 100.69M words
+
+	Hash type: MSSQL(2000)
+	Speed/sec: 177.41M words
+
+	Hash type: MSSQL(2005)
+	Speed/sec: 181.14M words
+
+	Hash type: MSSQL(2012)
+	Speed/sec: 41.34M words
+
+	Hash type: MySQL323
+	Speed/sec: 624.65M words
+
+	Hash type: MySQL4.1/MySQL5
+	Speed/sec: 120.88M words
+
+	Hash type: Oracle 11g/12c
+	Speed/sec: 197.77M words
+
+	Hash type: OSX v10.4, v10.5, v10.6
+	Speed/sec: 200.04M words
+
+	Hash type: OSX v10.7
+	Speed/sec: 42.08M words
+
+	Hash type: OSX v10.8 / v10.9
+	Speed/sec: 655 words
+
+	Hash type: Android PIN
+	Speed/sec: 204.72k words
+
+	Hash type: scrypt
+	Speed/sec: 979 words
+
+	Hash type: Cisco-PIX MD5
+	Speed/sec: 337.08M words
+
+	Hash type: Cisco-ASA MD5
+	Speed/sec: 311.25M words
+
+	Hash type: Cisco-IOS SHA256
+	Speed/sec: 110.45M words
+
+	Hash type: Cisco $9$
+	Speed/sec: 6.95k words
+
+	Hash type: WPA/WPA2
+	Speed/sec: 18.01k words
+
+	Hash type: IKE-PSK MD5
+	Speed/sec: 75.24M words
+
+	Hash type: IKE-PSK SHA1
+	Speed/sec: 34.08M words
+
+	Hash type: Password Safe v3
+	Speed/sec: 58.87k words
+
+	Hash type: AIX {ssha1}
+	Speed/sec: 2.27M words
+
+	Hash type: Radmin2
+	Speed/sec: 180.72M words
+
+	Hash type: HMAC-MD5 (key = $pass)
+	Speed/sec: 135.34M words
+
+	Hash type: HMAC-MD5 (key = $salt)
+	Speed/sec: 233.42M words
+
+	Hash type: HMAC-SHA1 (key = $pass)
+	Speed/sec: 66.68M words
+
+	Hash type: HMAC-SHA1 (key = $salt)
+	Speed/sec: 112.10M words
+
+	Hash type: HMAC-SHA256 (key = $pass)
+	Speed/sec: 30.67M words
+
+	Hash type: HMAC-SHA256 (key = $salt)
+	Speed/sec: 58.05M words
+
+	Hash type: HMAC-SHA512 (key = $pass)
+	Speed/sec: 11.45M words
+
+	Hash type: HMAC-SHA512 (key = $salt)
+	Speed/sec: 22.37M words
+
+	Hash type: IPMI2 RAKP HMAC-SHA1
+	Speed/sec: 68.25M words
+
+	Hash type: Half MD5
+	Speed/sec: 309.78M words
+
+	Hash type: Double MD5
+	Speed/sec: 170.11M words
+
+	Hash type: GRUB 2
+	Speed/sec: 2.33k words
+
+	Hash type: phpass, MD5(Wordpress), MD5(phpBB3), MD5(Joomla)
+	Speed/sec: 292.59k words
+
+	Hash type: Joomla < 2.5.18
+	Speed/sec: 313.02M words
+
+	Hash type: osCommerce, xt:Commerce
+	Speed/sec: 318.75M words
+
+	Hash type: IPB2+, MyBB1.2+
+	Speed/sec: 142.57M words
+
+	Hash type: vBulletin < v3.8.5
+	Speed/sec: 162.44M words
+
+	Hash type: SMF > v1.1
+	Speed/sec: 200.07M words
+
+## John the Ripper
+
+I compiled John from source so there were a few extra steps involved. If I try this again at some point i'll try and setup the community edition of John for some of the added functionality.
+
+### Setup
+
+Since there's some compiling to do I grabbed build-essentail. libssl-dev is required for john.
+
+	apt-get update
+	apt-get install build-essential make libssl-dev
+	
+Next I pulled down the latest release of john the ripper (1.8.0 at the time or writing) and extracted. If you're using these notes in the future you might have to change the URL below (or at least check to see if there's a newer version out).
+
+	wget http://www.openwall.com/john/j/john-1.8.0.tar.gz
+	tar xvfz john*.tar.gz
+
+Time to compile. The `OMPFLAGS` need to be uncommented in the make file. 
+
+	cd john*/src/
+	vi Makefile
+
+The following lines needed changing...
+
+	# gcc with OpenMP
+	#OMPFLAGS = -fopenmp
+	# gcc with OpenMP on 32-bit x86 with 	SSE2
+	#OMPFLAGS = -fopenmp -msse2
+
+..to (lines uncommented):
+
+	# gcc with OpenMP
+	OMPFLAGS = -fopenmp
+	# gcc with OpenMP on 32-bit x86 with SSE2
+	OMPFLAGS = -fopenmp -msse2
+
+After changing I saved the file then ran the following to compile. 
+
+	make clean linux-x86-64
+
+With any luck the john binary will be in the run folder ready to be played with.
+
+### Benchmarks
+
+John comes with a `--test` option for benchmarking. 
+
+	./john --test
+	Will run 36 OpenMP threads
+	Benchmarking: descrypt, traditional crypt(3) [DES 128/128 SSE2-16]... DONE
+	Many salts:     38810K c/s real, 1081K c/s virtual
+	Only one salt:  28225K c/s real, 785700 c/s virtual
+
+	Benchmarking: bsdicrypt, BSDI crypt(3) ("_J9..", 725 iterations) [DES 128/128 SSE2-16]... DONE
+	Many salts:     1358K c/s real, 37751 c/s virtual
+	Only one salt:  958464 c/s real, 27775 c/s virtual
+
+	Benchmarking: md5crypt [MD5 32/64 X2]... DONE
+	Raw:    318237 c/s real, 8881 c/s virtual
+
+	Benchmarking: bcrypt ("$2a$05", 32 iterations) [Blowfish 32/64 X2]... DONE
+	Raw:    25488 c/s real, 708 c/s virtual
+
+	Benchmarking: LM [DES 128/128 SSE2-16]... DONE
+	Raw:    88090K c/s real, 2462K c/s virtual
+
+	Benchmarking: AFS, Kerberos AFS [DES 48/64 4K]... DONE
+	Short:  520345 c/s real, 520345 c/s virtual
+	Long:   1702K c/s real, 1702K c/s virtual
+
+	Benchmarking: tripcode [DES 128/128 SSE2-16]... DONE
+	Raw:    16540K c/s real, 527567 c/s virtual
+
+	Benchmarking: dummy [N/A]... DONE
+	Raw:    81656K c/s real, 81008K c/s virtual
+
+	Benchmarking: crypt, generic crypt(3) [?/64]... DONE
+	Many salts:     3939K c/s real, 109467 c/s virtual
+	Only one salt:  3305K c/s real, 92308 c/s virtual
+
+## Thoughts on AWS
+
+Some of the speeds reported aren't bad, but not great. Most decent GPUs will do much better against some of the easy algorithms such as MD5, NTLM etc.
+
+Looking into spot instances on AWS (instances run at cheaper rates when available) could be an option for those automating a password cracking business in the cloud.
+
+This was really just a close look at using a high core count on AWS. Maybe in the future i'll get around to delving a bit deeper into this approach to password cracking. 
+
+
+## The glory of htop
+ 
+{% img center /images/2015-03-17/htop.png %}

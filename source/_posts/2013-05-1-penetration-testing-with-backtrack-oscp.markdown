@@ -3,12 +3,13 @@ layout: post
 title: "Penetration Testing With Backtrack - OSCP"
 date: 2013-05-11 12:00:00 +0100
 comments: true
-categories: OSCP
+categories: [OSCP, PWB, offensive security]
 ---
 
 
-### The course
 The Penetration Testing with BackTrack (PWB) course is one which covers a lot of topics and genres, will push you to your limits, and make you forget what sleep is. The remote lab covers multiple networks, each with machines varying in difficulty and types of vulnerabilities. I cannot go into too much detail due to the non-disclosure agreement students make with Offensive Security. The best insight as to what is covered in the course can be viewed here in the [course syllabus](http://www.offensive-security.com/documentation/penetration-testing-with-backtrack.pdf) (this is what got me initially interested in the course). Be aware that the lab book will go through a large selection of topics, but independent research will be required. Expect to be surprised in the labs.
+
+<!-- more -->
 
 To start with a few quick notes to people that might be reading this.
 

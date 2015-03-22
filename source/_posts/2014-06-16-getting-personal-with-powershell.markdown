@@ -3,10 +3,12 @@ layout: post
 title: "Getting Personal With PowerShell: Linux to PowerShell"
 date: 2014-06-28 13:00:00 +0100
 comments: true
-categories: 
+categories: [powershell]
 ---
 
 Running Windows as a main OS can be tough times for many hard core Linux users, especially when you want some command line power. PowerShell at first glance looks alien to some, but under closer inspection it's not a million miles away from what you can achieve in a Bash shell. 
+
+<!-- more -->
 
 If you’re like me you'll have a few handy aliases that save a bit of time whilst working in your Linux environment. For example the below aliases save having to type out long commands that you may use quite often:
 

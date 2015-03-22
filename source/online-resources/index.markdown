@@ -7,6 +7,8 @@ sharing: false
 footer: true
 ---
 
+Okay so I could probably make a very very long list of web sites for this page, and maybe I will some day. But the sites below are enough to keep you busy for now :]
+
 ### [HackThisSite ](https://www.hackthissite.org/pages/index/index.php "Hack This Site")
 This site is for the complete beginner and offers many practical hacking puzzles that cover a range of topics. 
 

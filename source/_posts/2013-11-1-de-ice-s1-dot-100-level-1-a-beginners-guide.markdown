@@ -3,11 +3,13 @@ layout: post
 title: "De-ICE S1.100 (Level 1) - A Beginners Guide"
 date: 2013-11-1 12::00:00 +0100
 comments: true
-categories: de-ice vulnhub
+categories: [de-ice, vulnhub]
 ---
 
 ### About De-ICE S1.100 (Level 1)
 This machine is very good for those looking to get their teeth into learning some simple penetration testing techniques. It allows newcomers to have a play with some common tools that are used in many penetration tests. In this guide I will to go into some detail to help beginners understand these tools. My aim is to inform you of why a chosen tool was been picked for the task and how to use the tool at a basic level.
+
+<!-- more -->
 
 ### Things to Remember 
 Throughout the guide I will reference several tools. If you wish to find out more about the tool and the options is has available, the following command should aid you. Use it whenever you get stuck with a application.

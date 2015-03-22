@@ -3,10 +3,12 @@ layout: post
 title: "My Move to Octopress"
 date: 2014-05-25 14:00:00 +0100
 comments: true
-categories: octopress windows
+categories: [octopress, windows]
 ---
 
 So, a friend of mine was talking about this thing called Octopress and how he was moving his blogspot content across to it. I toiled for a while thinking that it wasn't something I needed to do right now, but in the end I gave in and spent an evening moving my own blog across (I only had 2 posts before this so I assumed it would be quick - and I was right). There are plenty of blogs describing the process of setting up an Octopress site using GitHub pages, so rather than regurgitate others material I'll talk about the bits that I got stuck with. But first... 
+
+<!-- more -->
 
 ### Why did I move?
 It's not hard to notice that I've only got two other posts on this blog. There's a couple reasons for that. The main reason is I don't like to repeat content that's already out on the net. I've had a few things to talk about previously but after having a look about it's already been done before, so why copy what's out there? Secondly, the sort of posts that I would like to write (like my De-Ice guide) would be in depth. Whilst I do enjoy blogging, using blogspot was a pain to use. Making everything look pretty using the formatting in blogspot was tedious and slow making me reluctant/too lazy to write big blog posts. 
