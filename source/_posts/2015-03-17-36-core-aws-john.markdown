@@ -12,7 +12,7 @@ As part of a project recently I got the chance to play with a 36 core instance o
 
 I'll be assuming you can reach the point of setup where you are logging into your freshly set-up machine on AWS (if you're following along to set this up yourself). If you need help setting up a box on AWS, there's a [getting started](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) guide from amazon to get you going.
 
-The bench marks from this will differ depending on attack type, rules, and what hash type is being attacked, so take these results with a pinch of sale. Both hashcat and john both have different benchmark outputs. John only shows the benchmarks of the algorithms it was compiled with (as far as i'm away).
+The bench marks from this will differ depending on attack type, rules, and what hash type is being attacked, so take these results with a pinch of salt. Both hashcat and john both have different benchmark outputs. John only shows the benchmarks of the algorithms it was compiled with (as far as i'm away).
 
 ## hashcat
 
@@ -30,7 +30,7 @@ After this it was just a case of downloading and installing the latest version o
 	wget http://hashcat.net/files/hashcat-0.49.7z
 	7z x hashcat-0.49.7z
 	
-The EULA needed to be accepted proceeding with using hatchet, here's a quick copy paste way to get the prompt up, I guess:
+The EULA needed to be accepted proceeding with using hashcat, here's a quick copy paste way to get the prompt up, I guess:
 
 	./hashcat-cli64.bin -a 0 -m 0 examples/A0.M0.hash examples/A0.M0.word
 
@@ -42,7 +42,7 @@ No you didn't, because you did the apt-get install from earlier...
 
 ### Benchmarks
 
-Benchmarking is simple enough with hatchet using the `--benchmark` or `-b` option. Here's the output (it's a bit long):
+Benchmarking is simple enough with hashcat using the `--benchmark` or `-b` option. Here's the output (it's a bit long):
 
 	./hashcat-cli64.bin
 	
