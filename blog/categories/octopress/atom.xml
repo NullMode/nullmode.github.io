@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-01-16T20:25:17+00:00</updated>
+  <updated>2015-03-22T01:45:53+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -19,6 +19,9 @@
     <updated>2014-05-25T14:00:00+01:00</updated>
     <id>http://blog.nullmode.com/blog/2014/05/25/my-move-to-octopress</id>
     <content type="html"><![CDATA[<p>So, a friend of mine was talking about this thing called Octopress and how he was moving his blogspot content across to it. I toiled for a while thinking that it wasn&rsquo;t something I needed to do right now, but in the end I gave in and spent an evening moving my own blog across (I only had 2 posts before this so I assumed it would be quick &ndash; and I was right). There are plenty of blogs describing the process of setting up an Octopress site using GitHub pages, so rather than regurgitate others material I&rsquo;ll talk about the bits that I got stuck with. But first&hellip;</p>
+
+<!-- more -->
+
 
 <h3>Why did I move?</h3>
 

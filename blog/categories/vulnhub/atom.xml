@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vulnhub | Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/blog/categories/vulnhub/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-01-16T20:25:17+00:00</updated>
+  <updated>2015-03-22T01:45:53+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<h3>About De-ICE S1.100 (Level 1)</h3>
 
 <p>This machine is very good for those looking to get their teeth into learning some simple penetration testing techniques. It allows newcomers to have a play with some common tools that are used in many penetration tests. In this guide I will to go into some detail to help beginners understand these tools. My aim is to inform you of why a chosen tool was been picked for the task and how to use the tool at a basic level.</p>
+
+<!-- more -->
+
 
 <h3>Things to Remember</h3>
 

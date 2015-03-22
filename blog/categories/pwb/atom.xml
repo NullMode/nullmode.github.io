@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: OSCP | Things all the hacking]]></title>
-  <link href="http://blog.nullmode.com/blog/categories/oscp/atom.xml" rel="self"/>
+  <title><![CDATA[Category: PWB | Things all the hacking]]></title>
+  <link href="http://blog.nullmode.com/blog/categories/pwb/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
   <updated>2015-03-22T01:45:53+00:00</updated>
   <id>http://blog.nullmode.com/</id>

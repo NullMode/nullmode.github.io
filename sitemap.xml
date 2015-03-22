@@ -4,21 +4,25 @@
         <loc>
             http://blog.nullmode.com/blog/2013/05/11/penetration-testing-with-backtrack-oscp/
         </loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-22T01:45:49+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://blog.nullmode.com/blog/2013/10/31/de-ice-s1-dot-100-level-1-a-beginners-guide/
         </loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-21T23:25:29+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/blog/2014/05/25/my-move-to-octopress/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-21T23:25:03+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/blog/2014/06/28/getting-personal-with-powershell/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-21T23:36:33+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.nullmode.com/blog/2015/03/17/36-core-aws-john/</loc>
+        <lastmod>2015-03-22T01:45:00+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/assets/bootstrap/docs/about.html</loc>
@@ -42,7 +46,7 @@
     </url>
     <url>
         <loc>http://blog.nullmode.com/assets/bootstrap/docs/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-22T01:45:49+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/assets/bootstrap/docs/javascript.html</loc>
@@ -54,15 +58,15 @@
     </url>
     <url>
         <loc>http://blog.nullmode.com/blog/archives/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-22T01:45:49+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-22T01:45:49+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/online-resources/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-21T23:35:34+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/pgp/</loc>
@@ -70,7 +74,7 @@
     </url>
     <url>
         <loc>http://blog.nullmode.com/readme/</loc>
-        <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+        <lastmod>2015-03-21T23:42:31+00:00</lastmod>
     </url>
     <url>
         <loc>http://blog.nullmode.com/readme.txt</loc>
@@ -79,5 +83,9 @@
     <url>
         <loc>http://blog.nullmode.com/robots.txt</loc>
         <lastmod>2015-01-15T20:54:11+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.nullmode.com/tools/</loc>
+        <lastmod>2015-03-21T12:32:51+00:00</lastmod>
     </url>
 </urlset>

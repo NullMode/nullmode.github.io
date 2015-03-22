@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: powershell | Things all the hacking]]></title>
+  <link href="http://blog.nullmode.com/blog/categories/powershell/atom.xml" rel="self"/>
+  <link href="http://blog.nullmode.com/"/>
+  <updated>2015-03-22T01:45:53+00:00</updated>
+  <id>http://blog.nullmode.com/</id>
+  <author>
+    <name><![CDATA[NullMode]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Personal With PowerShell: Linux to PowerShell]]></title>
+    <link href="http://blog.nullmode.com/blog/2014/06/28/getting-personal-with-powershell/"/>
+    <updated>2014-06-28T13:00:00+01:00</updated>
+    <id>http://blog.nullmode.com/blog/2014/06/28/getting-personal-with-powershell</id>
+    <content type="html"><![CDATA[<p>Running Windows as a main OS can be tough times for many hard core Linux users, especially when you want some command line power. PowerShell at first glance looks alien to some, but under closer inspection it&rsquo;s not a million miles away from what you can achieve in a Bash shell.</p>
+
+<!-- more -->
+
+
+<p>If you’re like me you&rsquo;ll have a few handy aliases that save a bit of time whilst working in your Linux environment. For example the below aliases save having to type out long commands that you may use quite often:</p>
+
+<pre><code>alias lsa="ls -lsahS"
+
+alias screen="screen -xRR"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../..”
+
+alias upd="sudo apt-get update"
+alias upg="sudo apt-get upgrade"
+alias ins="sudo apt-get install"
+alias rem="sudo apt-get purge"
+alias fix="sudo apt-get install -f"
+</code></pre>
+
+<p>If you find yourself dropping into a Linux virtual machine to use the command line functionality you may be surprised to learn that a lot of the same functionality can be achieved with PowerShell. PowerShell handles everything as an object which makes piping between commands very powerful. For example, if I want to return the full path for every file in the current directory I could do the following:</p>
+
+<pre><code>Get-ChildItem | Select-Object fullname
+</code></pre>
+
+<p>Each file returned is piped to the select command to get the <strong>fullname</strong> attribute of the file object.</p>
+
+<p>It&rsquo;s worth learning about the PowerShell equivalents of some of the commands you might run in a Linux shell. Below I&rsquo;ve put some of the more familiar Linux command line binaries and their PowerShell counterparts.</p>
+
+<br />
+
+
+<h4>Listing running processes</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>ps
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>get-process
+</code></pre>
+
+<br />
+
+
+<h4>Stopping a process</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>kill calc.exe
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>get-process calc.exe | StopProcess
+</code></pre>
+
+<br />
+
+
+<h4>Displaying a list of 1 to 10</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>seq 1 10
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>1..10
+</code></pre>
+
+<br />
+
+
+<h4>Print the first 10 lines of a file</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>head -n10 file.txt
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>gc file.txt | select -first 10
+</code></pre>
+
+<br />
+
+
+<h4>Print the last 10 lines of a file</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>tail -n10 file.txt
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>gc file.txt | select -last 10 
+</code></pre>
+
+<br />
+
+
+<h4>Count the lines in a file</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>wc -l file.txt
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>gc file.txt | Measure-Object -Line 
+</code></pre>
+
+<br />
+
+
+<h4>Print lines that contain the word “example”</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>grep example file.txt
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>Select-Text example file.txt
+</code></pre>
+
+<br />
+
+
+<h4>Split file using &ldquo;:&rdquo; as a delimiter and print the second item</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>awk -F ":" '{print $1}' file.txt
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>gc file.txt | %{ $_.Split(':')[1]; }
+</code></pre>
+
+<br />
+
+
+<h4>Replace the word “example” with “elpmaxe” in file.txt</h4>
+
+<p><strong>Linux</strong></p>
+
+<pre><code>cat file.txt | sed ’s/example/elpmaxe/‘
+</code></pre>
+
+<p><strong>PowerShell</strong></p>
+
+<pre><code>gc test.txt | Select-String “example" | %{ $_ -replace ‘example', 'elpmaxe' }
+</code></pre>
+
+<br />
+
+
+<p>There’s actually a lot of built in aliases in PowerShell already so if you find yourself loathing some long command string you might be pleased to know that their is probably already a shortcut for it already. You can find out what these are with the following command:</p>
+
+<pre><code>Get-Alias
+</code></pre>
+
+<p>As you can see there are a few items in the list that would be familiar to you if you are from a Linux background. Aliases such as ls, cat and rm are just a few examples of aliases that you wont need to re-learn (or set up) for PowerShell. Remember that command at the start where I grabbed the full path for each file in the directory? That could have been simplified using these built in aliases.</p>
+
+<pre><code>ls | select fullname
+</code></pre>
+
+<p>That&rsquo;s not so much of a pain to type is it?</p>
+
+<h3>Setting up your PowerShell profile</h3>
+
+<p>For practice I&rsquo;ll go through setting up the profile (mostly) in PowerShell. The PowerShell environment tries to load your profile information from the following file (may differ with different Windows operating systems):</p>
+
+<pre><code>C:\Users\NullMode\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+</code></pre>
+
+<p>This file location is stored in the PowerShell environment variable $PROFILE as seen below:</p>
+
+<pre><code>echo $PROFILE
+C:\Users\NullMode\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+</code></pre>
+
+<p>Let&rsquo;s use this variable to create this file in this location:</p>
+
+<pre><code>New-Item -type file -force $PROFILE
+</code></pre>
+
+<p>Hooray, we&rsquo;ve just made a PowerShell profile file.</p>
+
+<h3>Adding aliases to our PowerShell profile file</h3>
+
+<p>Let&rsquo;s open up that file from within PowerShell because we&rsquo;re gurus now:</p>
+
+<pre><code>notepad $PROFILE
+</code></pre>
+
+<p>In a .bashrc/.bash_aliases file you can define functions that can be run as well as aliases, unfortunately this isn&rsquo;t possible with PowerShell. You must first define the function then use the New-Alias command to tie the function name to an alias that we can type into the prompt.</p>
+
+<h5>With the open file let&rsquo;s add some aliases:</h5>
+
+<p>How about a quick alias to run ipconfig:</p>
+
+<pre><code>New-Alias ipconfig -value ip
+</code></pre>
+
+<p>If you want to do ipconfig /all the following would be required as you are supplying the name of the command and an argument:</p>
+
+<pre><code>function ipconfig_all_function() {
+    ipconfig /all
+}
+New-Alias -name ipa -value ipconfig_all_function
+</code></pre>
+
+<p>Change to your $HOME directory:</p>
+
+<pre><code>cd_home_function() {
+    cd $HOME
+}
+New-Alias -name home -value cd_home_function
+</code></pre>
+
+<p>Maybe a shortcut to open notepad if you&rsquo;re in a console window:</p>
+
+<pre><code>New-Alias -name n -value notepad
+</code></pre>
+
+<p>Being lazy is cool remember:</p>
+
+<pre><code>function exit_function() {
+    exit
+}
+New-Alias -name x -value exit_function
+</code></pre>
+
+<p>Once you have some aliases in your profile file just save it and open a new PowerShell instance and test them out! You&rsquo;ll get an error if something is wrong in the file so you&rsquo;ll be able to correct yourself.</p>
+
+<p>The aliases above are pretty simple. Here is one I&rsquo;ve made that sets up a git repository with some local configuration settings. This can be useful if you have multiple git servers using different user names and e-mails assigned to them.</p>
+
+<pre><code>function gitinb_function() {
+    git init
+    git config --local user.name NullModeBitbucket
+    git config --local user.email TheRealDeal@DealOrNoDeal.cn
+}
+New-Alias -name gitinb -value gitin_function
+
+function giting_function() {
+    git init
+    git config --local user.name NullModeGithub
+    git config --local user.email TheRealDeal@DealOrNoDeal.cn
+}
+New-Alias -name giting -value gitin_function
+</code></pre>
+
+<h3>More customization</h3>
+
+<p>Here are a couple of places you can go to read about aliases and profile customization that you may wish to incorporate into your own profile file:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/138144/whats-in-your-powershell-profile-ps1file">What&rsquo;s in your Powershell profile.ps1file?</a> &ndash; some cool examples from other PowerShell users</li>
+<li><a href="http://www.howtogeek.com/50236/customizing-your-powershell-profile/">Customizing your PowerShell Profile</a> &ndash; A similar guide to this that has a nice example of pimping out the terminal itself</li>
+</ul>
+
+
+<h3>Bonus information!</h3>
+
+<p>There&rsquo;s some special locations you can get to within PowerShell. I thought I&rsquo;d include them here while I remember as maybe someone will find them useful.</p>
+
+<p>View the windows environment variables:</p>
+
+<pre><code>cd env:
+ls
+</code></pre>
+
+<p>View the Windows HIVE files:</p>
+
+<pre><code>cd HKLM:
+ls
+</code></pre>
+
+<p>If you want to find out about a particular item in one of of these locations you can do the following (remembering that past the tabbing through the items is possible):</p>
+
+<pre><code>echo $Env:OS
+</code></pre>
+
+<h3>Shout-outs</h3>
+
+<p>Thanks to <a href="https://twitter.com/lllamaboy" title="@lllamaboy">@lllamaboy</a> for giving me the first steps on setting up a python $PROFILE and letting me in on the whole special location thing.</p>
+]]></content>
+  </entry>
+  
+</feed>

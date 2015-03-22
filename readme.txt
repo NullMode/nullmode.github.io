@@ -70,13 +70,16 @@
                     <a href="/blog/archives">Archives</a>
                 </li>
                 <li >
+                    <a href="/tools/">Tools</a>
+                </li>
+                <li >
+                    <a href="/pgp/">PGP</a>
+                </li>
+                <li >
                     <a href="/online-resources/">Online Resources</a>
                 </li>
                 <li >
                     <a href="/readme/">README.txt</a>
-                </li>
-                <li >
-                    <a href="/pgp/">PGP</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -182,6 +185,8 @@
   </div>
   
   <div id="recent_posts" class="list-group">
+    
+    <a class="list-group-item " href="/blog/2015/03/17/36-core-aws-john/">Password Cracking With Amazon Web Services - 36 Cores</a>
     
     <a class="list-group-item " href="/blog/2014/06/28/getting-personal-with-powershell/">Getting Personal With PowerShell: Linux to PowerShell</a>
     
