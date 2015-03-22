@@ -4,7 +4,7 @@
   <title><![CDATA[Category: aws | Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/blog/categories/aws/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-03-22T11:04:37+00:00</updated>
+  <updated>2015-03-22T17:52:17+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -45,7 +45,7 @@ sudo apt-get install -y libgmp3-dev p7zip-full
 7z x hashcat-0.49.7z
 </code></pre>
 
-<p>The EULA needed to be accepted proceeding with using hatchet, here&rsquo;s a quick copy paste way to get the prompt up, I guess:</p>
+<p>The EULA needed to be accepted proceeding with using hashcat, here&rsquo;s a quick copy paste way to get the prompt up, I guess:</p>
 
 <pre><code>./hashcat-cli64.bin -a 0 -m 0 examples/A0.M0.hash examples/A0.M0.word
 </code></pre>
@@ -59,7 +59,7 @@ sudo apt-get install -y libgmp3-dev p7zip-full
 
 <h3>Benchmarks</h3>
 
-<p>Benchmarking is simple enough with hatchet using the <code>--benchmark</code> or <code>-b</code> option. Here&rsquo;s the output (it&rsquo;s a bit long):</p>
+<p>Benchmarking is simple enough with hashcat using the <code>--benchmark</code> or <code>-b</code> option. Here&rsquo;s the output (it&rsquo;s a bit long):</p>
 
 <pre><code>./hashcat-cli64.bin
 
