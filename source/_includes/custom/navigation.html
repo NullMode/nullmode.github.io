@@ -21,14 +21,17 @@
                 <li {% if page.navbar == 'Archives' %}class="active"{% endif %}>
                     <a href="{{ root_url }}/blog/archives">Archives</a>
                 </li>
+                <li {% if page.navbar == 'Tools' %}class="active"{% endif %}>
+                    <a href="{{ root_url }}/tools/">Tools</a>
+                </li>
+                <li {% if page.navbar == 'PGP' %}class="active"{% endif %}>
+                    <a href="{{ root_url }}/pgp/">PGP</a>
+                </li>
                 <li {% if page.navbar == 'Online Resources' %}class="active"{% endif %}>
                     <a href="{{ root_url }}/online-resources/">Online Resources</a>
                 </li>
                 <li {% if page.navbar == 'README' %}class="active"{% endif %}>
                     <a href="{{ root_url }}/readme/">README.txt</a>
-                </li>
-                <li {% if page.navbar == 'PGP' %}class="active"{% endif %}>
-                    <a href="{{ root_url }}/pgp/">PGP</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
