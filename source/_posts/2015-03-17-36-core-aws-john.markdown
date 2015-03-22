@@ -6,7 +6,7 @@ comments: true
 categories: [password cracking, john the ripper, hashcat, aws]
 ---
 
-As part of a project recently I got the chance to play with a 36 core instance on AWS (c4.8xlarge) for some password cracking related activities. To get hashcat and john up and running with multi-core is a little fiddly (it's not download and crack), so I thought I'd document the setup and show some benchmarks with [hashcat](http://hashcat.net/hashcat/) and [John the Ripper](http://www.openwall.com/john/) utilising 36 cores. In order to select the 36 core instance you'll need to use a HVM (hardware virtual machine) enabled machine image. I used the Amazon Linux image. 
+As part of a project recently I got the chance to play with a 36 core instance on AWS (c4.8xlarge) for some password cracking related activities. To get hashcat and john up and running with multi-core is a little fiddly (it's not download and crack), so I thought I'd document the setup and show some benchmarks with [hashcat](http://hashcat.net/hashcat/) and [John the Ripper](http://www.openwall.com/john/) utilising 36 cores. In order to select the 36 core instance you'll need to use a HVM (hardware virtual machine) enabled machine image. I used the Ubuntu Server 14.04 LTS image. 
 
 <!-- more -->
 
