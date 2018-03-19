@@ -4,7 +4,7 @@
   <title><![CDATA[Things all the hacking]]></title>
   <link href="http://blog.nullmode.com/atom.xml" rel="self"/>
   <link href="http://blog.nullmode.com/"/>
-  <updated>2015-03-22T17:52:17+00:00</updated>
+  <updated>2018-03-19T21:22:23+00:00</updated>
   <id>http://blog.nullmode.com/</id>
   <author>
     <name><![CDATA[NullMode]]></name>
@@ -755,9 +755,9 @@ Bad CNAME format: ÿþb l o g . n u l l m o d e . c o m
   
   <entry>
     <title type="html"><![CDATA[De-ICE S1.100 (Level 1) - A Beginners Guide]]></title>
-    <link href="http://blog.nullmode.com/blog/2013/10/31/de-ice-s1-dot-100-level-1-a-beginners-guide/"/>
-    <updated>2013-10-31T23:00:00+00:00</updated>
-    <id>http://blog.nullmode.com/blog/2013/10/31/de-ice-s1-dot-100-level-1-a-beginners-guide</id>
+    <link href="http://blog.nullmode.com/blog/2013/11/01/de-ice-s1-dot-100-level-1-a-beginners-guide/"/>
+    <updated>2013-11-01T00:00:00+01:00</updated>
+    <id>http://blog.nullmode.com/blog/2013/11/01/de-ice-s1-dot-100-level-1-a-beginners-guide</id>
     <content type="html"><![CDATA[<h3>About De-ICE S1.100 (Level 1)</h3>
 
 <p>This machine is very good for those looking to get their teeth into learning some simple penetration testing techniques. It allows newcomers to have a play with some common tools that are used in many penetration tests. In this guide I will to go into some detail to help beginners understand these tools. My aim is to inform you of why a chosen tool was been picked for the task and how to use the tool at a basic level.</p>
