@@ -26,7 +26,7 @@
 <link href="/stylesheets/custom.css" rel="stylesheet" type="text/css">
 
 
-  <script src="/javascripts/libs/jquery/jquery-3.3.1.min.js"></script>
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
   
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
